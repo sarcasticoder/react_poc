@@ -15,6 +15,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #ffffff;
 }
 
 h1 {
@@ -23,7 +24,9 @@ h1 {
 }
 
 
-
+/* Full-bleed reset */
+html, body, #root { height: 100%; }
+html, body, #root { margin: 0; padding: 0; } 
 
 
 @layer base {
@@ -89,10 +92,10 @@ h1 {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-foreground;
   }
   
-  .dark body {
-    @apply bg-gray-900 text-white;
+  html {
+    background-color: #ffffff;
   }
 }

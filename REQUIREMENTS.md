@@ -195,7 +195,7 @@ Build a simple, clean React POC that demonstrates a login flow, a top navigation
 ```
 src/
   components/
-    layout/TopNav.jsx
+    layout/AdminNavbar.tsx
     ui/Button.jsx
     ui/Modal.jsx
     ui/Input.jsx
