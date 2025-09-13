@@ -1,0 +1,162 @@
+---
+alwaysApply: true
+---
+# React Admin POC - Cursor Rules
+
+## Project Overview
+This is a React Admin POC project that demonstrates a complete admin interface with authentication, navigation, and user management capabilities.
+
+## Key Requirements & Constraints
+
+### CRITICAL USER RULES - MUST FOLLOW
+- **DO NOT start working on task or implement anything without asking**
+- **NEVER change any existing CSS or styles without asking**
+- **NEVER remove any code without asking**
+
+### Project Structure
+```
+src/
+  components/
+    layout/TopNav.jsx
+    ui/Button.jsx
+    ui/Modal.jsx
+    ui/Input.jsx
+    ui/ConfirmDialog.jsx
+    users/UserForm.jsx
+    users/UsersTable.jsx
+  pages/
+    Login.jsx
+    Dashboard.jsx
+    AdminUsers.jsx
+    AdminRoles.jsx
+    AdminSettings.jsx
+  routes/ProtectedRoute.jsx
+  data/usersRepo.js
+  data/authRepo.js
+  App.jsx
+  main.jsx
+```
+
+### Core Features
+1. **Authentication Flow**: Mock login with localStorage session management
+2. **Protected Routes**: Route protection with redirect to login
+3. **Top Navigation**: Sticky navbar with Dashboard, Admin dropdown, Profile menu
+4. **Users CRUD**: Full CRUD operations with search, sorting, pagination
+5. **Form Validation**: Client-side validation with duplicate email prevention
+6. **Delete Confirmation**: Modal confirmation for delete operations
+
+### Technical Stack
+- React 18 with functional components and hooks
+- React Router v6 for routing
+- Tailwind CSS for styling
+- Vite for build tooling
+- localStorage for data persistence
+- ESLint + Prettier for code quality
+
+### Data Models
+```javascript
+// User Model
+{
+  id: "uuid",
+  name: "string",
+  email: "string", 
+  role: "Admin|Editor|Viewer",
+  status: "Active|Inactive",
+  createdAt: "ISO string"
+}
+
+// Session Model
+{
+  id: "uuid",
+  name: "string",
+  email: "string"
+}
+```
+
+### Routes
+- `/login` (public)
+- `/` → Dashboard (protected)
+- `/admin/users` (protected)
+- `/admin/roles` (protected, placeholder)
+- `/admin/settings` (protected, placeholder)
+
+### Key Acceptance Criteria
+- Login form validates and stores session; redirects to `/`
+- Protected routes redirect unauthenticated users to `/login`
+- Logout clears session and returns to `/login`
+- Navbar visible on protected pages; Admin menu routes work
+- Profile menu shows name, email, today's date, and Logout
+- Add/Edit/Delete works with local persistence
+- Delete shows confirmation dialog
+- Global search filters by Name/Email/Role/Status
+- Sort works on Name/Email/Role/Status/CreatedAt (asc/desc)
+- Pagination: default 10/page, switchable to 25/50
+- Basic form validation and duplicate email prevention
+
+### Development Guidelines
+- Use functional components with hooks
+- Keep components small and focused
+- Prefer local state over global state
+- Use useMemo for expensive calculations
+- Implement proper error boundaries
+- Show user-friendly error messages
+- Use React.memo for expensive components
+- Ensure responsive design
+
+### Code Quality Standards
+- ESLint + Prettier configuration
+- Small, focused components
+- No dead code
+- Meaningful variable and function names
+- Proper error handling
+- Accessibility basics (ARIA attributes, keyboard navigation)
+
+### Performance Considerations
+- Memoize derived lists (filtered, sorted, paginated)
+- Use useCallback for event handlers passed to children
+- Implement React.memo for expensive components
+- Keep bundle minimal
+- Avoid unnecessary re-renders
+
+### Security (POC Level)
+- No real authentication
+- Don't store sensitive data
+- Sanitize user inputs displayed in UI
+- Avoid dangerous HTML injection
+
+### Browser Support
+- Latest Chrome/Edge
+- Basic Safari/Firefox
+- Works on 1280px desktop
+- Degrades reasonably to ~360px
+
+## Implementation Notes
+- This is a POC, not production code
+- Use localStorage for data persistence
+- Mock authentication (any user is treated as Admin)
+- Keep design lightweight and clean
+- Focus on functionality over advanced features
+- Seed with ~5 example users on first load
+
+## Future Enhancements (Not in Scope)
+- Real authentication (JWT)
+- Role-based access control
+- Server-side pagination/filtering
+- CSV export & column chooser
+- Activity log/notifications
+- Dark mode toggle
+
+## When Working on This Project
+1. Always ask before implementing any changes
+2. Never modify existing styles without permission
+3. Never remove existing code without permission
+4. Follow the established project structure
+5. Maintain code quality standards
+6. Test all CRUD operations
+7. Ensure responsive design
+8. Implement proper error handling
+9. Add loading and empty states
+10. Follow accessibility guidelines
+
+## Reference
+See REQUIREMENTS.md for complete detailed requirements document.
